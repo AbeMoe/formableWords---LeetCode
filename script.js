@@ -10,8 +10,8 @@
 //          with value minus one.
 
 
-const words = ["cat","bt","hat","tree"];
-var chars = "atach";
+const words = ["dyiclysmffuhibgfvapygkorkqllqlvokosagyelotobicwcmebnpznjbirzrzsrtzjxhsfpiwyfhzyonmuabtlwin","ndqeyhhcquplmznwslewjzuyfgklssvkqxmqjpwhrshycmvrb","ulrrbpspyudncdlbkxkrqpivfftrggemkpyjl","boygirdlggnh","xmqohbyqwagkjzpyawsydmdaattthmuvjbzwpyopyafphx","nulvimegcsiwvhwuiyednoxpugfeimnnyeoczuzxgxbqjvegcxeqnjbwnbvowastqhojepisusvsidhqmszbrnynkyop","hiefuovybkpgzygprmndrkyspoiyapdwkxebgsmodhzpx","juldqdzeskpffaoqcyyxiqqowsalqumddcufhouhrskozhlmobiwzxnhdkidr","lnnvsdcrvzfmrvurucrzlfyigcycffpiuoo","oxgaskztzroxuntiwlfyufddl","tfspedteabxatkaypitjfkhkkigdwdkctqbczcugripkgcyfezpuklfqfcsccboarbfbjfrkxp","qnagrpfzlyrouolqquytwnwnsqnmuzphne","eeilfdaookieawrrbvtnqfzcricvhpiv","sisvsjzyrbdsjcwwygdnxcjhzhsxhpceqz","yhouqhjevqxtecomahbwoptzlkyvjexhzcbccusbjjdgcfzlkoqwiwue","hwxxighzvceaplsycajkhynkhzkwkouszwaiuzqcleyflqrxgjsvlegvupzqijbornbfwpefhxekgpuvgiyeudhncv","cpwcjwgbcquirnsazumgjjcltitmeyfaudbnbqhflvecjsupjmgwfbjo","teyygdmmyadppuopvqdodaczob","qaeowuwqsqffvibrtxnjnzvzuuonrkwpysyxvkijemmpdmtnqxwekbpfzs","qqxpxpmemkldghbmbyxpkwgkaykaerhmwwjonrhcsubchs"];
+var chars = "usdruypficfbpfbivlrhutcgvyjenlxzeovdyjtgvvfdjzcmikjraspdfp"
 var charDict = {};
 var total =0;
 for (var char of chars)
@@ -23,8 +23,8 @@ for (var char of chars)
   else
     charDict[char]+=1;
 }
-delete chars;
 console.log(charDict);
+delete chars;
 for(var word of words)
 {
   var isGood =true;
@@ -34,10 +34,11 @@ for(var word of words)
     if(charDict[char] != undefined)
     {
       if(tempDict[char] == undefined)
-        tempDict[char] = charDict[char];
+        tempDict[char] = charDict[char]-1;
       else if(tempDict[char] != 0)
       {
         tempDict[char] -=1;
+        console.log(tempDict);
       }
       else
       {
@@ -54,6 +55,7 @@ for(var word of words)
   }
   if(isGood)
   {
+    console.log(word);
     total+= word.length;
   }
   delete tempDict;
