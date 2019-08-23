@@ -10,10 +10,11 @@
 //          with value minus one.
 
 
-words = ["hello","world","leetcode"];
-chars = "welldonehoneyr";
-charDict = {};
-for (char of chars)
+const words = ["cat","bt","hat","tree"];
+var chars = "atach";
+var charDict = {};
+var total =0;
+for (var char of chars)
 {
   if (charDict[char] == undefined)
   {
@@ -22,4 +23,39 @@ for (char of chars)
   else
     charDict[char]+=1;
 }
+delete chars;
 console.log(charDict);
+for(var word of words)
+{
+  var isGood =true;
+  var tempDict = {};
+  for(var char of word)
+  {
+    if(charDict[char] != undefined)
+    {
+      if(tempDict[char] == undefined)
+        tempDict[char] = charDict[char];
+      else if(tempDict[char] != 0)
+      {
+        tempDict[char] -=1;
+      }
+      else
+      {
+        isGood =false;
+        break;
+      }
+    }
+    else
+    {
+      isGood =false;
+      break;
+    }
+
+  }
+  if(isGood)
+  {
+    total+= word.length;
+  }
+  delete tempDict;
+}
+console.log(total);
